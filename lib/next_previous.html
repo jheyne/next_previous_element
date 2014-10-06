@@ -1,0 +1,32 @@
+<link rel="import" href="../../packages/polymer/polymer.html">
+<link rel="import" href="../../packages/core_elements/core_icon_button.html">
+
+<polymer-element name="next-previous" attributes="totalCount currentIndex previousDisabled nextDisabled ">
+  <template>
+    <style>
+      leftArrow: {
+      }
+      rightArrow: {
+      }
+      contents: {
+      }
+    </style> 
+    <div on-resize="{{resize}}" layout horizontal >
+      <template if="{{previousDisabled}}">
+        <core-icon-button id="leftArrow" disabled icon="chevron-left" self-center ></core-icon-button>
+      </template>
+      <template if="{{!previousDisabled}}">
+        <core-icon-button id="leftArrow" on-tap="{{previous}}" icon="chevron-left" self-center ></core-icon-button>
+      </template>
+      <content id="content" ></content>
+      <template if="{{nextDisabled}}">
+        <core-icon-button id="rightArrow" icon="chevron-right" disabled self-center ></core-icon-button>
+      </template>
+      <template if="{{!nextDisabled}}">
+        <core-icon-button id="rightArrow" on-tap="{{next}}" icon="chevron-right" self-center ></core-icon-button>
+      </template>
+    </div>       
+  </template>
+  <script type="application/dart" src="next_previous.dart"></script>
+</polymer-element>
+

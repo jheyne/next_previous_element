@@ -1,76 +1,57 @@
-Elapsed Time Web Component
+Next Previous Web Component
 ========
 
-Compares a DateTime to the current time and displays the elapsed time, such as
+This simple Dart Polymer component provides **Next** and **Previous** buttons to allow the user to page through a list. Whenever the buttons are tapped, a corresponding event (_on-next_ or _on-previous_) is fired.
 
-  4 hours 38 minutes
+Button enablement is automatically managed by the user suppling attributes for **totalCount** and **currentIndex**. Both default to zero (0). 
+
+The user supplies the contents, which is presented between the buttons, and updates the contents by responding to the _on-next_ and _on-previous_ events.
   
-Demonstration code can be exercised by running example/app.html in Dartium. This references a demo web component, which in turn references the 'elapsed-time' element.
+Demonstration code can be exercised by running **example/app.html** in Dartium. This references a demo web component, which in turn references the **next-previous** element.
 
 Usage
 -------
 
-1. This is the simplest case. DateTime.now() is the default time, and no attributes are set.
+This component only supplies navigation buttons. Hence, it will typically be embedded in another web component which supplies the actual contents.
 
- ```html
-        <elapsed-time></elapsed-time> 
+In this example (from **example/app.html**), the user can page through a list of people.
+
+```html
+    <next-previous id="nextPrev" on-next="{{nextPerson}}" on-previous="{{previousPerson}}" >
+      <div id="panel" layout vertical >
+        <div><span>Name</span><input value={{person.name}}></div>
+        <div><span>Phone</span><input value={{person.phone}}></div>
+        <div><span>City</span><input value={{person.address}}></div>
+      </div>
+    </next-previous> 
 ```
 
-2. Units like 'minutes' and 'hours' can be abbreviated for a more succinct presentation. Set **"verbose"** to "false".
+Notice that _person_ is an object that has properties for _name_, _phone_ and _address_. The navigation events are mapped to the methods **nextPerson()** and **previousPerson()**.
 
- ```html
-        <elapsed-time verbose="false"></elapsed-time> 
+```dart
+
+  void domReady() {
+    super.domReady();
+    // set up a list to navigate, and set the current selection
+    person = people[0];
+    // set the count of navigable items
+    nextPreviousElement
+        ..currentIndex = 0
+        ..totalCount = people.length;
+  }
+
+  NextPrevious get nextPreviousElement => ($['nextPrev'] as NextPrevious);
+
+  void nextPerson() {
+    person = people[nextPreviousElement.currentIndex];
+  }
+
+  void previousPerson() {
+    person = people[nextPreviousElement.currentIndex];
+  }
+  
 ```
 
-3. A ""prefix"" and/or **suffix** can be specified (for example, " ago").
 
- ```html
-        <elapsed-time prefix="happened" suffix=" ago"></elapsed-time> 
-```
 
-4. A message can be specified when the elapse is **less than one minute** (for example, as "moments ago").
 
- ```html
-    <elapsed-time lessThanOneMinute="moments ago"></elapsed-time> 
- ```
-
-5. A **specific date** can be specified (for example, two hours ago).
-
- ```html
-    <elapsed-time dateTime="{{twoHoursAgo}}"></elapsed-time> 
- ```
-
-6. A **future specific date** can be specified (for example, two hours from now).
-
- ```html
-    <elapsed-time dateTime="{{twoHoursAhead}}"></elapsed-time> 
- ```
-7. The **CSS style** of the elapsed time can be explicitly set (for example, "color: red;").
-
- ```html
-    <elapsed-time elapsedTimeStyle="color: red;"></elapsed-time> 
- ```
-
-8. **CSS style** can be **dynamically** configured via a callback (for example, bold red for 2 hours or more, otherwise green italic).
-
- ```html
-    <elapsed-time styleCallback="{{colorTime}}"></elapsed-time> 
- ```
-
-   Dart code:
-
- ```dart
-@published StyleCallbackFunction colorTime = (DateTime dateTime, Duration duration) => duration.inMinutes >= 2 ? "color: red; font-weight: bold" : "color: green; font-style: italic";  
- ```
-9. The **tooltip icon** can be altered to another core-icons option (for example, to "warning").
-
- ```html
-    <elapsed-time tooltipIcon="warning"></elapsed-time> 
- ```
-
-10. If the **date is null** a custom message can be displayed (the default shows nothing).
-
- ```html
-    <elapsed-time noTimeSpecified="not available" ></elapsed-time> 
- ```
- 
