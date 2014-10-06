@@ -1,5 +1,5 @@
 import 'package:polymer/polymer.dart';
-import 'package:next_previous_element/next_previous.dart';
+import 'package:next_previous_element/next_previous_element.dart';
 
 class Person extends Observable {
   String name = "";
