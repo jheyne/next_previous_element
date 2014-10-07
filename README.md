@@ -3,7 +3,7 @@ Next Previous Web Component
 
 This simple Dart Polymer component provides **Next** and **Previous** buttons to allow the user to page through a list. Whenever the buttons are tapped, a corresponding event (_on-next_ or _on-previous_) is fired.
 
-Button enablement is automatically managed by the user suppling attributes for **totalCount** and **currentIndex**. Both default to zero (0). 
+Button enablement is automatically managed by the user supplying attributes for **totalCount** and **currentIndex**. Both default to zero (0). 
 
 The user supplies the contents, which is presented between the buttons, and updates the contents by responding to the _on-next_ and _on-previous_ events.
   
@@ -52,6 +52,7 @@ Notice that _person_ is an object that has properties for _name_, _phone_ and _a
   
 ```
 
+Data binding takes care of updating the presentation of the selected person.
 
 
 

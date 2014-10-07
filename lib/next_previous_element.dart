@@ -20,6 +20,11 @@ class NextPrevious extends PolymerElement {
   int _currentIndex = 0;
 
   /*
+   * Text for tooltip, such as '1 of 3'
+   */
+  @published String countTooltip = '';
+
+  /*
    * If true, the "previous" button should be disabled
    */
   @published bool previousDisabled = false;
@@ -56,6 +61,7 @@ class NextPrevious extends PolymerElement {
   void updateButtons() {
     previousDisabled = currentIndex == 0;
     nextDisabled = currentIndex >= (totalCount - 1);
+    countTooltip = '${currentIndex + 1} of ${totalCount}';
   }
 
   DivElement get content => $["content"] as DivElement;

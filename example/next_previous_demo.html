@@ -29,7 +29,7 @@
     <h1>Next Previous Demo</h1>
     <div><b></b></div>
     <div></div>
-    <p>This example demonstrates paging through a list of objects. Notice the data binding: edit the name (for example) and the underling object's name is updated.</p>
+    <p>This example demonstrates paging through a list of objects. Notice the data binding: edit the name (for example) and the underlying object's name is updated.</p>
     <next-previous id="nextPrev" on-next="{{nextPerson}}" on-previous="{{previousPerson}}" >
       <div id="panel" layout vertical >
         <div><span>Name</span><input value={{person.name}}></div>
@@ -37,10 +37,10 @@
         <div><span>City</span><input value={{person.address}}></div>
       </div>
     </next-previous> 
-      <p>In this example, no contents are set (totalCount=0) and the next/previous buttons should be disabled,</p>
+      <p>In this example, no contents are set (totalCount=0) and the next/previous buttons should be disabled.</p>
     <next-previous totalCount=0 >
       <div>
-        <div id="panel" self-center >Both buttons should be disabled</div>
+        <div id="panel">Both buttons should be disabled</div>
        </div>
     </next-previous> 
     <div></div>

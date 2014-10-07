@@ -1,8 +1,8 @@
 name: next_previous_element
-version: 0.10.0
+version: 0.10.0+3
 author: Jim Heyne <jheyne@gmail.com>
 homepage: https://github.com/jheyne/next_previous_element
-description: Dart Polymer component with previous/next buttons floating over a presentation area. Akin to a slideshow. The presentation area is a DIV that can hold any content.
+description: Dart Polymer component with previous/next buttons for a presentation area. Akin to a slideshow. The presentation area can hold any content.
 dependencies:
   core_elements: any
   polymer: any
