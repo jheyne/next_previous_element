@@ -52,6 +52,8 @@ Notice that _person_ is an object that has properties for _name_, _phone_ and _a
   
 ```
 
+Shortcut keys can be defined for the next/previous actions using the attributes _previousAccessKey_ and _nextAccessKey_. See the example for a demonstration.
+
 Data binding takes care of updating the presentation of the selected person.
 
 

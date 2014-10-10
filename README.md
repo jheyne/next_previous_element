@@ -16,7 +16,7 @@ This component only supplies navigation buttons. Hence, it will typically be emb
 
 In this example (from **example/app.html**), the user can page through a list of people.
 
-```
+```html
     <next-previous id="nextPrev" on-next="{{nextPerson}}" on-previous="{{previousPerson}}" >
       <div id="panel" layout vertical >
         <div><span>Name</span><input value={{person.name}}></div>
@@ -28,7 +28,7 @@ In this example (from **example/app.html**), the user can page through a list of
 
 Notice that _person_ is an object that has properties for _name_, _phone_ and _address_. The navigation events are mapped to the methods **nextPerson()** and **previousPerson()**.
 
-```
+```dart
 
   void domReady() {
     super.domReady();
@@ -52,8 +52,9 @@ Notice that _person_ is an object that has properties for _name_, _phone_ and _a
   
 ```
 
-Data binding takes care of updating the presentation of the selected person.
+Shortcut keys can be defined for the next/previous actions using the attributes _previousAccessKey_ and _nextAccessKey_. See the example for a demonstration.
 
+Data binding takes care of updating the presentation of the selected person.
 
 
 
