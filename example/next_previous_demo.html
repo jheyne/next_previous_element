@@ -30,7 +30,7 @@
     <div><b></b></div>
     <div></div>
     <p>This example demonstrates paging through a list of objects. Notice the data binding: edit the name (for example) and the underlying object's name is updated.</p>
-    <next-previous id="nextPrev" on-next="{{nextPerson}}" on-previous="{{previousPerson}}" >
+    <next-previous id="nextPrev" on-next="{{nextPerson}}" on-previous="{{previousPerson}}" previousAccessKey="p" nextAccessKey="n">
       <div id="panel" layout vertical >
         <div><span>Name</span><input value={{person.name}}></div>
         <div><span>Phone</span><input value={{person.phone}}></div>

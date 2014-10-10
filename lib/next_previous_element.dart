@@ -34,6 +34,17 @@ class NextPrevious extends PolymerElement {
    */
   @published bool nextDisabled = false;
 
+  /*
+   * Define a keyboard shortcut for the "previous" button. It is triggered as defined by the browser. See http://www.w3schools.com/tags/att_global_accesskey.asp.
+   */
+  @published String previousAccessKey = '';
+
+  /*
+   * Define a keyboard shortcut for the "next" button. It is triggered as defined by the browser. See http://www.w3schools.com/tags/att_global_accesskey.asp.
+   */
+  @published String nextAccessKey = '';
+  
+
   NextPrevious.created() : super.created() {
   }
 
